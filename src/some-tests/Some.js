@@ -1,14 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './Some.css';
+import Recipe from './Recipe'
+import './Some.css'
 
-function Some() {
-  return (
-    <div className="Some">
-      <header className="Some-header">
-      </header>
-    </div>
-  );
-}
+const Some = ({ recipes }) =>
+    <article>
+        <header>
+            <h1>Some Recipes</h1>
+        </header>
+        <div className="recipes">
+            { recipes.map((recipe, i) =>
+                <Recipe key={i} {...recipe} />)
+            }
+        </div>
+    </article>
 
-export default Some;
+Some.displayName = 'Some'
+
+export default Some
